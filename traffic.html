@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d02f2b1a2b.js" crossorigin="anonymous"></script>
+    <title>Traffic Light</title>
+    <script>
+        i=0;
+        var n=1;
+        var cArray = ["red","yellow","green"];
+        function trafficLight(){
+            var l=document.getElementsByClassName('light');
+            for(var j=0; j<l.length; j++){
+                l[j].style.background="black";
+                l[j].innerHTML=""
+            }
+            l[i].style.background=cArray[i];
+            if(i<l.length){
+                if(n<=3){
+                    l[i].innerHTML=n;
+                    n++;
+                }
+                if(n==4){
+                    i++;
+                    n=1;
+                    if(i==3){
+                        i=0;
+                    }
+                }
+            }
+
+        }
+        setInterval(trafficLight,1000);
+    </script>
+</head>
+<body onload="trafficLight()">
+    <div class="main">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+</body>
+</html>
